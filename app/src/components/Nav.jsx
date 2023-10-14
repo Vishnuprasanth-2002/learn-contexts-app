@@ -1,12 +1,15 @@
 import { useContext } from "react";
+import {
+  ThemeDispatchContext,
+  ThemeContext,
+  UserContext,
+} from "../contexts/DataContext";
 
-import { ThemeDispatchContext } from "../contexts/ThemeContext";
-import { ThemeContext } from "../contexts/ThemeContext";
-import { UserContext } from "../contexts/ThemeContext";
 const Nav = () => {
   const themeDispatch = useContext(ThemeDispatchContext);
   const themeContext = useContext(ThemeContext);
-  const UserContext = useContext(UserContext);
+  const userContext = useContext(UserContext);
+
   console.log(themeDispatch);
 
   function handleClick(mode) {
@@ -15,24 +18,21 @@ const Nav = () => {
   }
 
   return (
-    <nav class="container">
+    <nav className="container">
       <ul>
         <li>
           <strong>Brand</strong>
         </li>
       </ul>
       <ul>
+        <li>{userContext.name}</li>
         <li>
-          <div className="profile"><img src={UserContext.image} /></div>
+          <div className="profile">
+            <img src={userContext.image} />
+          </div>
         </li>
       </ul>
       <ul>
-        {/* <li>
-          <a href="#">Link</a>
-        </li>
-        <li>
-          <a href="#">Link</a>
-        </li> */}
         <li>
           {themeContext.value === "light" ? (
             <button onClick={() => handleClick("dark")}>🌙</button>

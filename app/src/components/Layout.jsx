@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import Nav from "./Nav";
-import { ThemeContext } from "../contexts/ThemeContext";
+import { ThemeContext } from "../contexts/DataContext";
 
 const Layout = (props) => {
   const themeContext = useContext(ThemeContext);
