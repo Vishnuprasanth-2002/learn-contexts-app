@@ -22,8 +22,8 @@ function ThemeProvider({ children }) {
 
 function UserProvider({ children }) {
   const [user, setUser] = useState({
-    name: 'hi',
-    image: 'mm'
+    name: "",
+    image: "",
   });
 
   return (
@@ -35,4 +35,11 @@ function UserProvider({ children }) {
   );
 }
 
-export { ThemeProvider, UserProvider, UserContext, setUserContext, ThemeContext, ThemeDispatchContext };
+export {
+  ThemeProvider,
+  UserProvider,
+  UserContext,
+  setUserContext,
+  ThemeContext,
+  ThemeDispatchContext,
+};

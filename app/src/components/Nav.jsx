@@ -30,7 +30,7 @@ const Nav = () => {
           <Tooltip title={userContext.name}>
             <Avatar src={userContext.image} sx={{ width: 62, height: 62 }} />
           </Tooltip>
-        </li>
+        </li> 
         <li>
           {themeContext.value === "light" ? (
             <button onClick={() => handleClick("dark")}>🌙</button>
