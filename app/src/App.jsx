@@ -1,5 +1,7 @@
 import "@picocss/pico";
 
+import "./app.css";
+
 import { useState } from "react";
 
 import { ThemeProvider, UserProvider } from "./contexts/DataContext";

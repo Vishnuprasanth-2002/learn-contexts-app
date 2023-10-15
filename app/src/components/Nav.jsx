@@ -4,6 +4,7 @@ import {
   ThemeContext,
   UserContext,
 } from "../contexts/DataContext";
+import { Avatar, Tooltip } from "@mui/material";
 
 const Nav = () => {
   const themeDispatch = useContext(ThemeDispatchContext);
@@ -25,14 +26,11 @@ const Nav = () => {
         </li>
       </ul>
       <ul>
-        <li>{userContext.name}</li>
         <li>
-          <div className="profile">
-            <img src={userContext.image} />
-          </div>
+          <Tooltip title={userContext.name}>
+            <Avatar src={userContext.image} sx={{ width: 62, height: 62 }} />
+          </Tooltip>
         </li>
-      </ul>
-      <ul>
         <li>
           {themeContext.value === "light" ? (
             <button onClick={() => handleClick("dark")}>🌙</button>

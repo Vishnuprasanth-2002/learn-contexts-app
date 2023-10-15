@@ -1,6 +1,10 @@
 import React, { useContext, useState } from "react";
 import Layout from "../components/Layout";
-import { ThemeContext, setUserContext, UserContext } from "../contexts/DataContext";
+import {
+  ThemeContext,
+  setUserContext,
+  UserContext,
+} from "../contexts/DataContext";
 
 const IndexPage = () => {
   const themeContext = useContext(ThemeContext);
@@ -18,35 +22,42 @@ const IndexPage = () => {
     }
   }
 
-  function handleClick() {
-    // Create a new user object with the updated values
+  function handleClick(e) {
+    e.preventDefault();
     const updatedUser = {
       ...userContext,
       name: nameInput,
       image: imageInput,
     };
     setUser(updatedUser);
+    setNameInput("");
+    setImageInput("");
   }
 
   return (
     <Layout title="My context app">
-      <h2>Index page</h2>
-      <input
-        type="text"
-        placeholder="Enter Name"
-        name="name"
-        value={nameInput}
-        onChange={(e) => handleOnChange("name", e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Enter url"
-        name="image"
-        value={imageInput}
-        onChange={(e) => handleOnChange("image", e.target.value)}
-      />
-      <button onClick={() => handleClick()}>Set Values</button>
-      <p>Current theme: {themeContext.value}</p>
+      <form onSubmit={(e) => handleClick(e)}>
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          placeholder="Enter Name"
+          name="name"
+          value={nameInput}
+          onChange={(e) => handleOnChange("name", e.target.value)}
+          required
+        />
+        <label htmlFor="image">Proifle pic</label>
+        <input
+          id="image"
+          type="text"
+          placeholder="Enter url"
+          name="image"
+          value={imageInput}
+          onChange={(e) => handleOnChange("image", e.target.value)}
+          required
+        />
+        <button type="submit">login</button>
+      </form>
     </Layout>
   );
 };
